@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>员工主页</title>
+	<link rel="stylesheet" type="text/css" href="css/MainPage.css">
+	<script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/MainPageEmp.js"></script>
+</head>
+<body>
+	<div class="block">
+		<p>
+		<img src="img/Bear.jpg" width="80px">
+		<div class="id-show">
+			<div style="float:left; margin-right:5px;">你好，</div>
+			<div id="identity" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">部门：</div>
+			<div id="department" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">职位：</div>
+			<div id="position" style="float:left;" ></div>
+		</div>
+		</p>
+		<div class="menu">
+			<ul>
+				<li>
+					<a id="LeaveAsking" href="">
+						请假
+					</a>
+				</li>
+				<li>
+					<a  id="WorkOvertime" href="">
+						申请加班   <!-- 最终可以去掉 -->
+					</a>
+				</li>
+				<li>
+					<a id="WorkInfoEmp" href="">
+						班次信息
+					</a>
+				</li>
+				<li>
+					<a id="MyPunch" href="">
+						打卡记录<!-- 按月 -->
+					</a>
+				</li>
+				<li>
+					<a id="UpdatePersonInfo" href="">
+						更新个人信息
+					</a>
+				</li>
+				<li>
+					<a id="Login" href="">
+						退出登录
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="activitiesAlert" style="">
+			恭喜您有新的加班活动啦!
+			<!-- <div style="width: 100px; height: 100px">
+				<img src="photo.jpg" style="width: 100%; height: auto">
+			</div> -->
+			<table class="activities" border="1">
+			<tr>
+				<th>日期</th>
+				<th>开始时间</th>
+				<th>结束时间</th>
+			</tr>
+		</div>
+		
+	</div>
+</body>
+</html>

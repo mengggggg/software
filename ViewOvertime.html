@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>审批信息</title>
+	<link rel="stylesheet" type="text/css" href="css/WorkInfo.css">
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/ViewOvertime.js"></script>
+</head>
+<body>
+	<div class="block">
+		<p>
+		<img src="img/Bear.jpg" width="80px">
+		<div class="id-show">
+			<div style="float:left; margin-right:5px;">你好，</div>
+			<div id="identity" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">部门：</div>
+			<div id="department" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">职位：</div>
+			<div id="position" style="float:left;" ></div>
+		</div>
+		</p>
+		<div class="menu">
+			<ul>
+				<li>
+					<a id="ViewLeave" href="">
+						查看请假
+					</a>	
+				</li>
+				<li>
+					<a id="ViewCancelLeave" href="">
+						查看销假 
+					</a>
+				</li>
+				<li>
+					<a id="ViewOvertime" href="">
+						查看加班申请
+					</a>	
+				</li>
+				<li>
+					<a id="Return" href="">
+						返回个人首页
+					</a>
+				</li>
+			</ul>
+		</div>
+		<table class="workinfo" border="1">
+		<tr id="tablehead">
+			<th>序号</th>
+			<th>加班日期</th>
+			<th>加班时长</th>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

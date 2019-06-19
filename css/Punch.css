@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+	background: #00c0ff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.block{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 5rem;
+	width: 55em;
+	height: 40em;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 0 16px #333;
+}
+p{
+	margin-right: 540px;
+}
+img{
+	float:left;
+}
+.id-show{
+	position: absolute;
+	margin-top: 40px;
+	font-weight: bold;
+	font-size: 15px;
+	color: blue;
+}
+.menu{
+	position: relative;
+	margin: 10px;
+}
+a:visited, a:link{
+	text-decoration: none;
+}
+li{
+	margin: 0 10px;
+	float: left;
+	list-style: none;
+	font-weight: bold;
+	font-size: 20px;	
+	color: white;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 5px;
+}
+li:hover{
+	border-radius: 15px;
+	background-color:#f40;
+	color: #fff;
+}
+/*表格样式*/
+table{
+	margin-top: 20px;
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+th{
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #00c0ff;
+}
+td{
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}

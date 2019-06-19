@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewPort" content="width=device-width,initial-scale=1">
+	<title>员工考勤系统</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+	<div class="login-block">
+		<div class="login-animate">
+			<div class="left-ear"></div>
+			<div class="right-ear"></div>
+			<div class="head"> 
+				<div class="left-eye"></div>
+				<div class="right-eye"></div>
+				<div class="face">
+					<div class="nose"></div>
+					<div class="mouth"></div>
+				</div>
+			</div>
+			<div class="body"></div>
+			<div class="left-arm"></div>
+			<div class="right-arm"></div>
+		</div>
+		<form action="MainPageEmp.html" method="post" >
+		<div class="login-form">
+			<div class="username">
+				<input type="text" name="username" placeholder="工号" id="username">
+			</div>
+			<div class="password">
+				<input type="password" name="password" placeholder="密码" id="password">
+				<div class="pwd-eye" style="background-image: url('img/password-show.png');" data-flag="hide"></div>
+			</div>
+			<br>	
+			<div class="login-link">
+				<button class="login-button" type="button" >登录</button>
+			</div>
+		</div>
+		</form>
+	</div>
+<!-- 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script> -->
+<script
+	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous">
+  	</script>
+	<script type="text/javascript" src="js/BearMovement.js"></script>
+	<script type="text/javascript" src="js/Login.js"></script>
+</body>
+</html>

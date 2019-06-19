@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>工作班次</title>
+	<link rel="stylesheet" type="text/css" href="css/WorkInfo.css">
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/WorkMyInfoSup.js"></script>
+</head>
+<body>
+	<div class="block">
+		<p>
+		<img src="img/Bear.jpg" width="80px">
+		<div class="id-show">
+			<div style="float:left; margin-right:5px;">你好，</div>
+			<div id="identity" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">部门：</div>
+			<div id="department" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">职位：</div>
+			<div id="position" style="float:left;" ></div>
+		</div>
+		</p>
+		<div class="menu">
+			<ul>
+				<li>
+					<a id="myself" href="">
+						查看我的
+					</a>	
+				</li>
+				<li>
+					<a id="dept" href="">
+						查看部门 
+						<!-- 需要添加修改功能 --> 
+						<!-- 更改前的员工名字和日期 -->
+					</a>
+				</li>
+				<li>
+					<a id="Return" href="">
+						返回个人首页
+					</a>
+				</li>
+			</ul>
+		</div>
+		<table class="workinfo" border="1">
+		<tr id="tablehead">
+			<th>序号</th>
+			<th>日期</th>
+			<th>上班时间</th>
+			<th>下班时间</th>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

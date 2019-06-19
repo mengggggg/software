@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>请假/销假</title>
+	<link rel="stylesheet" type="text/css" href="css/LeaveAsking.css">
+	<script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/LeaveAsking.js"></script>
+</head>
+<body>
+	<div class="block">
+		<p>
+		<img src="img/Bear.jpg" width="80px">
+		<div class="id-show">
+			<div style="float:left; margin-right:5px;">你好，</div>
+			<div id="identity" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">部门：</div>
+			<div id="department" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">职位：</div>
+			<div id="position" style="float:left;" ></div>
+		</div>
+		</p>
+		<div class="menu">
+			<ul>
+				<li>
+					<a id="FillOutForm" href="">
+						填写请假表
+					</a>
+				</li>
+				<li>
+					<a id="Return" href="">
+						返回个人首页
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+
+<!-- 默认展示请假记录 包括状态
+销假：选择申请销假的记录 确定之后改变该记录状态为等待审批
+请假：填写请假表之后返回此页面 增加请假记录 状态为等待审批 -->

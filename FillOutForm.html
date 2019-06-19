@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>填写请假表</title>
+	<link rel="stylesheet" type="text/css" href="css/FillOutForm.css">
+	<script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/FillOutForm.js"></script>
+</head>
+<body>
+	<div class="block">
+		<p>
+		<img src="img/Bear.jpg" width="80px">
+		<div class="id-show">
+			<div style="float:left; margin-right:5px;">你好，</div>
+			<div id="identity" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">部门：</div>
+			<div id="department" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">职位：</div>
+			<div id="position" style="float:left;" ></div>
+		</div>
+		</p>
+		<div class="menu">
+			<ul>
+				<li>
+					<a id="Return" href="">
+						返回个人首页
+					</a>
+				</li>
+			</ul>
+		</div>
+	<form id="form" style="margin-right: 200px; margin-top: 50px">
+		<div class="input" style="margin:20px;">
+			离开时间：<input id="dayleave" type="text" name="date">
+		</div>
+		<div class="input" style="margin:20px;">
+			回来时间：<input id="dayback" type="text" name="date">
+		</div>
+		<!-- <div style="margin:20px;">
+		类型：
+		<select id="type">
+			<option>事假</option>	
+			<option>病假</option>
+		</select>
+		</div> -->
+		<div class="input" style="margin:20px;">
+			请假理由：<input id="reason" type="text" name="reason">
+		</div>
+	</form>
+	<div>
+		<ul>
+			<li>
+				<a id="Submit" href="" onclick="getFormElements()">
+					提交
+				</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+</body>
+</html>
