@@ -53,11 +53,11 @@ $(function(){
 	function showData(data) {
 		var str = "";
 		var num = 1;
-		personId = new Array();
-		deptId = new Array();
-		post = new Array();
-		personName = new Array();
-		deptName = new Array();
+		empPersonId = new Array();
+		empDeptId = new Array();
+		empPost = new Array();
+		empPersonName = new Array();
+		empDeptName = new Array();
 		console.log(data.person);
 		for (var i = 0; i < data.person.length; i++, num++) {
 			var tempPost;
@@ -65,11 +65,11 @@ $(function(){
 			else if(data.person[i].post==1) tempPost = '主管';
 				else tempPost='经理';
 			str += "<tr><td>" + num + "</td><td>" + data.person[i].personName + "</td><td>" + tempPost + "</td><td>" + data.person[i].department.deptName+ "</td><td>" + "<button onclick=\"updateInfo(" + i + ")\">修改</button>" + "</td><td>" + "<button onclick=\"delInfo(" + i + ")\">删除</button>" + "</td><td>" + "<button onclick=\"resetPswd(" + i + ")\">重置密码</button>" + "</td></tr>";
-			personId[i] = data.person[i].personId;
-			deptId[i] = data.person[i].department.deptId;
-			post[i] = data.person[i].post;
-			personName[i] = data.person[i].personName;
-			deptName[i] = data.person[i].department.deptName;
+			empPersonId[i] = data.person[i].personId;
+			empDeptId[i] = data.person[i].department.deptId;
+			empPost[i] = data.person[i].post;//0,1
+			empPersonName[i] = data.person[i].personName;
+			empDeptName[i] = data.person[i].department.deptName;
 		}
 		$(".personinfo").append(str);
 	}
@@ -77,7 +77,7 @@ $(function(){
 })
 
 function updateInfo(i) {
-	
+	window.location.href = "UpdateWorkInfoMan.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary + "?emppersonId=" + empPersonId[i] + "?empdeptId=" + empDeptId[i] + "?emppost=" + empPost[i] + "?emppersonName=" + empPersonName[i] + "?empdeptName=" + empDeptName[i];
 	}
 
 function delInfo(i) {
@@ -85,7 +85,7 @@ function delInfo(i) {
 		url:'http://192.168.43.215:8080/employeeAttendance/executiveadmin/deleteperson',
 		type:"GET",
 		data:{
-			"personId": personId[i]
+			"personId": empPersonId[i]
 		} ,
 		dataType:"jsonp",
 		contentType:"application/x-www-form-urlencoded;charset=UTF-8",

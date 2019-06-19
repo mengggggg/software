@@ -20,9 +20,7 @@ $(function(){
 })
 
 function getFormElements() {
-	var curDate = new Date();
-	date = curDate.getFullYear() + "-" + (curDate.getMonth() + 1) + "-" + curDate.getDate(); //获取form表单的值
-	alert(date);
+	date = $('#date').val();//获取form表单的值
 	timeStart =  $('#timeStart').val();
 	timeOff =  $('#timeOff').val();
 	description =  $('#description').val();

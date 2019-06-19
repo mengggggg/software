@@ -20,6 +20,7 @@ $(function(){
 	document.getElementById("department").innerHTML = department;
 
 	document.getElementById("LeaveAsking").href = encodeURI("LeaveAsking.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
+	document.getElementById("LeaveCanceling").href = encodeURI("LeaveCanceling.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("WorkOvertime").href = encodeURI("WorkOvertime.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("WorkInfoEmp").href = encodeURI("WorkInfoEmp.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("MyPunch").href = encodeURI("MyPunch.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
@@ -57,17 +58,62 @@ $(function(){
 			})
 	}
 
+
 	function showData(data) {
 		var str = "";
 		var num = 1;
+		dateArray = new Array();
 		if(data.activityList.length == 0) {
 			document.getElementById("activitiesAlert").style = "display:none";
 		}
 		for (var i = 0; i < data.activityList.length; i++, num++) {
-			str = "<tr><td>" + data.activityList[i].date + "</td><td>" + data.activityList[i].timeOff + "</td><td>" + data.activityList[i].timeStart + "</td></tr>";
+			dateArray[i] = data.date[i];
+			str = "<tr><td>" + data.date[i] + "</td><td>" + data.timeStart[i] + "</td><td>" + data.timeOff[i] + "</td><td>" + data.activityList[i].description +  "</td><td>" + "<button onclick=\"sayYes(" + i + ")\">干</button>" + "<button onclick=\"sayNo(" + i + ")\">不干</button>" + "</td></tr>";
 			$(".activities").append(str);
 		}
 		
 	}
 })
+
+
+	function sayYes(i) {
+		date = dateArray[i];
+		opinion = 1;
+		responseOpinion();
+		window.location.href = "MainPageEmp.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary;
+	}
+
+	function sayNo(i) {
+		date = dateArray[i];	
+		opinion = 0;
+		responseOpinion();
+		window.location.href = "MainPageEmp.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary;
+	}
+
+	function responseOpinion() {
+		var userInfo = {};
+		userInfo.personId = idnecessary;
+		userInfo.date = date;
+		userInfo.opinion = opinion;
+		$.ajax({
+				url:'http://192.168.43.215:8080/employeeAttendance/executiveadmin/updateactivity',
+				type:"GET",
+				data:userInfo ,
+				dataType:"jsonp",
+				contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+				success:function(data) {
+					if(data.success) {
+						alert('提交成功！');
+						console.log(data);
+						}
+					else {
+						console.log(data);
+						alert('提交失败！' + data.msg);
+					}
+				},
+				error:function() {
+					alert('异常！')
+				}
+			})
+	}
 

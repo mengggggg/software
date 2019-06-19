@@ -57,8 +57,9 @@ $(function(){
 		console.log(data.workinfo);
 		for (var i = 0; i < data.workinfo.length; i++, num++) {
 			str = "<tr><td>" + num + "</td><td>" + data.workinfo[i].date + "</td><td>" + data.workinfo[i].workTime + "</td><td>" + data.workinfo[i].offTime + "</td></tr>";
+			$(".workinfo").append(str);
 		}
-		$(".workinfo").append(str);
+		
 	}
 })
 

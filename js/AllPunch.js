@@ -23,11 +23,12 @@ $(function(){
 	document.getElementById("position").innerHTML = position;
 	document.getElementById("department").innerHTML = department;
 
-	var Url = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/queryallattendance';
+	var Url = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/queryattendancebypersonid';
 	getMyPunchInfo();
 
 	function getMyPunchInfo() {
 		var userInfo = {};
+			userInfo.personId = idnecessary;
 			$.ajax({
 				url:Url,
 				type:"GET",
@@ -56,8 +57,8 @@ $(function(){
 		console.log(data.attendanceList[0].person.personName);
 
 		for (var i = 0; i < data.attendanceList.length; i++) {
-			str = "<tr><td>" + data.attendanceList[i].person.personName + "</td><td>" + data.attendanceList[i].person.department + "</td><td>" + data.date[i] + "</td><td>" + data.checkIn[i] + "</td><td>" + data.checkOut[i] + "</td><td>" + data.attendanceList[i].nature + "</td></tr>";
-			$(".punchinfo").append(str);
+			str = "<tr><td>" + data.attendanceList[i].person.personName + "</td><td>" + data.attendanceList[i].person.department + "</td><td>" + data.attendanceList[i].date + "</td><td>" + data.attendanceList[i].checkIn + "</td><td>" + data.attendanceList[i].checkOut + "</td><td>" + data.attendanceList[i].nature + "</td></tr>";
 		}
+		$(".punchinfo").append(str);
 	}
 })

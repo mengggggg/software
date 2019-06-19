@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>更新员工信息</title>
+	<link rel="stylesheet" type="text/css" href="css/UpdateInfo.css">
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/UpdateWorkInfoMan.js"></script>
+</head>
+<body>
+	<div class="block">
+		<p>
+		<img src="img/Bear.jpg" width="80px">
+		<div class="id-show">
+			<div style="float:left; margin-right:5px;">你好，</div>
+			<div id="identity" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">部门：</div>
+			<div id="department" style="float:left; margin-right: 10px" ></div>
+			<div style="float:left; margin-right:5px;">职位：</div>
+			<div id="position" style="float:left;" ></div>
+		</div>
+		</p>
+		<div class="menu">
+			<ul>
+				<li>
+					<a id="Return" href="">
+					返回个人首页
+					</a>
+				</li>
+			</ul>
+		</div>
+		<form id="form" style="margin-right: 200px; margin-top: 30px">
+			<div style="float:left; margin:5px;">员工姓名：</div>
+			<div id="empPersonName" style="margin:5px;" ></div>
+			<br>
+			<div style="float:left; margin:5px;">员工ID：</div>
+			<div id="empPersonId" style="float:left; margin:5px;" ></div>
+			<br>
+			<div class="input" style="float:left; margin:5px; margin-top: 20px">
+				输入新的部门：<input id="empDeptName" type="text" style="width:100px; text-align:center;" value="">
+			</div>
+			<br>
+			<div class="input" style="float:left; margin:5px; margin-top: 20px">
+				输入新的职位：<input id="empPost" type="text" style="width:100px; text-align:center;">
+			</div>
+		</form>
+		<div>
+			<ul>
+				<li>
+					<a id="Submit" href="" onclick="getFormElements()">
+						提交
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -40,7 +40,7 @@ $(function(){
 						}
 					else {
 						console.log(data);
-						alert('提交失败！' + data.errMsg);
+						alert('提交失败！' + data.msg);
 					}
 				},
 				error:function() {
@@ -52,71 +52,13 @@ $(function(){
 	function showData(data) {
 		var str = "";
 		var num = 1;
-		dateArray = new Array();
-		yearArray = new Array().fill(0);
-		monthArray = new Array().fill(0);
-
 		console.log(data.workinfo);
 		for (var i = 0; i < data.date.length; i++, num++) {
-			dateArray[i] =  data.date[i];
 			str = "<tr><td>" + num + "</td><td>" + data.date[i] + "</td><td>" + data.workTime[i] + "</td><td>" + data.offTime[i]+ "</td></tr>";
 			$(".workinfo").append(str);
 		}
 		
-		getyearandmonth();
-	}
-	
-	function getyearandmonth() {
-		for (var i = 0; i < dateArray.length; i++) {
-			var temp1 = dateArray[i].split('-')[0];
-			var temp2 = dateArray[i].split('-')[1];
-			temp1 = parseInt(temp1);
-			temp2 = parseInt(temp2);
-			yearArray[temp1] = 1;
-			monthArray[temp2] = 1;
-		}
 	}
 })
 
 
-function selectbyyearandmonth() {
-	year = $("#month option:selected"); 
-	year = year.text()
-	year = parseInt(year);
-	month = $("#month option:selected"); 
-	month = month.text()
-	month = parseInt(month);
-	if(yearArray[year] != 1) alert("无当前年份的记录");
-	else {
-		if(monthArray[month] != 1) alert("无当前月份的记录");
-		else select();
-	}
-}
-
-function select() {
-	var userInfo = {};
-		userInfo.personId = idnecessary;
-		userInfo.year = year;
-		userInfo.month = month;
-		$.ajax({
-			url:MyUrl,
-			type:"GET",
-			data:userInfo ,
-			dataType:"jsonp",
-			contentType:"application/x-www-form-urlencoded;charset=UTF-8",
-			success:function(data) {
-				if(data.success) {
-					alert('提交成功！');
-					console.log(data);
-					showData(data);
-					}
-				else {
-					console.log(data);
-					alert('提交失败！' + data.errMsg);
-				}
-			},
-			error:function() {
-				alert('异常！')
-			}
-		})
-}

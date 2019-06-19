@@ -46,7 +46,7 @@ $(function(){
 						}
 					else {
 						console.log(data);
-						alert('提交失败！' + msg);
+						alert('提交失败！' + data.errMsg);
 					}
 				},
 				error:function() {

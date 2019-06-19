@@ -55,6 +55,9 @@ li:hover{
 	background-color:#f40;
 	color: #fff;
 }
+button{
+	margin-left: 10px; 
+}
 /*表格样式*/
 table{
 	margin-top: 20px;
