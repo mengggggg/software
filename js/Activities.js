@@ -23,15 +23,18 @@ $(function(){
 	document.getElementById("position").innerHTML = position;
 	document.getElementById("department").innerHTML = department;
 
-	document.getElementById("dept").href = encodeURI("MyDeptPunch.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
+	document.getElementById("AddActivities").href = encodeURI("AddActivities.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 
+	var Url = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/querypersoninactivity';
+	getPerson();
 
-	var Url = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/queryattendancebyexecutiveid';
-	getMyDeptPunchInfo();
-
-	function getMyDeptPunchInfo() {
+	function getPerson() {
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
 		var userInfo = {};
-			userInfo.personId = idnecessary;
+		userInfo.date = year + "-" + month + "-" + day;
 			$.ajax({
 				url:Url,
 				type:"GET",
@@ -57,17 +60,14 @@ $(function(){
 
 	function showData(data) {
 		var str = "";
-		console.log(data.attendanceList[0].person.personName);
 
-		for (var i = 0; i < data.attendanceList.length; i++) {
-			if(data.attendanceList[i].nature == 0) {
-				var nat = "正常上班";
-			} else {
-				var nat = "加班";
+		if(data.activityList.length > 0) {
+			str = "<tr><td>" + data.activityList[0].description + "</td><td>" + data.timeStart[0] + "</td><td>" + data.timeOff[0] + "</td></tr>";
+			$(".activityinfo").append(str);
+			for(var i = 0; i < data.activityList.length; i++) {
+				str = "<tr><td>" + data.activityList[i].person.personName + "</td><td>" + data.activityList[i].person.department.deptName + "</td></tr>";
+				$(".personInfo").append(str);
 			}
-			str = "<tr><td>" + data.attendanceList[i].person.personName + "</td><td>" + department + "</td><td>" + data.date[i] + "</td><td>" + data.checkIn[i] + "</td><td>" + data.checkOut[i] + "</td><td>" + nat + "</td></tr>";
-			$(".punchinfo").append(str);		
 		}
-		
 	}
 })

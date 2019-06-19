@@ -17,7 +17,7 @@ $(function(){
 
 	document.getElementById("Return").href = encodeURI("MainPageSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("ViewLeave").href = encodeURI("ViewLeave.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
-	document.getElementById("ViewCancelLeave").href = encodeURI("ViewCancelLeave.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
+	
 
 	var Url = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/queryovertimeask';
 

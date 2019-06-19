@@ -19,10 +19,10 @@ $(function(){
 	document.getElementById("position").innerHTML = position;
 	document.getElementById("department").innerHTML = department;
 
-	document.getElementById("WorkInfoSup").href = encodeURI("WorkMyInfoSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
+	document.getElementById("WorkInfoSup").href = encodeURI("WorkMyDeptInfoSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("ViewLeave").href = encodeURI("ViewLeave.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("MyMan").href = encodeURI("MyMan.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
-	document.getElementById("MyPunch").href = encodeURI("MyPunch.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
+	document.getElementById("MyPunch").href = encodeURI("MyDeptPunch.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("Login").href = "Login.html";
 })
 

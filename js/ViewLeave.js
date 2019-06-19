@@ -18,6 +18,7 @@ $(function(){
 	document.getElementById("Return").href = encodeURI("MainPageSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("ViewOvertime").href = encodeURI("ViewOvertime.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 
+
 	var Url = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/queryleaveaskbyexecutiveid';
 
 	viewLeave();
@@ -49,26 +50,28 @@ $(function(){
 			})
 	}
 
+dataArrayId = new Array();
+personArrayId = new Array();
+leaveDateArray = new Array();
+backDateArray = new Array();
+
 	function showLeaveInfo(data) {
 		var str = "";
 		var num = 1;
-		dataArrayId = new Array();
-		leaveDateArray = new Array();
-		backDateArray = new Array();
-
-
 		console.log(data.leaveAsk);
 		for (var i = 0; i < data.leaveAsk.length; i++, num++) {
 			dataArrayId[i] = data.leaveAsk[i].leaveId;
-			leaveDateArray[i] = data.leaveAsk[i].leaveDate;
-			backDateArray[i] = data.leaveAsk[i].backDate;
-			str = "<tr><td>" + num + "</td><td>" + data.leaveDate[0] + "</td><td>" + data.backDate[0] + "</td><td>" + data.leaveAsk[i].reason + "</td><td>" + "<button onclick=\"Approve(" + i + ")\">批准</button>" + "</td><td>" + "<button onclick=\"Decline(" + ")\">拒绝</button>" + "</td></tr>";
+			leaveDateArray[i] = data.leaveDate[i];
+			backDateArray[i] = data.backDate[i];
+			personArrayId[i] = data.leaveAsk[i].person.personId;
+			str = "<tr><td>" + num + "</td><td>" + data.leaveDate[i] + "</td><td>" + data.backDate[i] + "</td><td>" + data.leaveAsk[i].reason + "</td><td>" + "<button onclick=\"Approve(" + i + ")\">批准</button>" + "</td><td>" + "<button onclick=\"Decline(" + i + ")\">拒绝</button>" + "</td></tr>";
 			$("#leaveinfo").append(str);
 		}
 	}
 })
 
 	function Approve(i) {
+		personId = personArrayId[i];
 		leaveId = dataArrayId[i];
 		opinion = 1;
 		leaveDate = leaveDateArray[i];
@@ -77,6 +80,7 @@ $(function(){
 	}
 
 	function Decline(i) {
+		personId = personArrayId[i];
 		leaveId = dataArrayId[i];
 		opinion = 0;
 		leaveDate = leaveDateArray[i];
@@ -86,6 +90,7 @@ $(function(){
 
 	function responseLeave() { 
 		var userInfo = {};
+			userInfo.workerId = personId;
 			userInfo.personId = idnecessary;
 			userInfo.leaveId = leaveId;
 			userInfo.approvalOpinion = opinion;
