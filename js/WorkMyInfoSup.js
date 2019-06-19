@@ -20,7 +20,7 @@ $(function(){
 	document.getElementById("Return").href = encodeURI("MainPageSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("dept").href = encodeURI("WorkMyDeptInfoSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 
-	var MyUrl = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/querydeptworkinfo';
+	var MyUrl = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/querypersonworkinfo';
 
 	getMyWorkInfo();//页面初始化时执行
 

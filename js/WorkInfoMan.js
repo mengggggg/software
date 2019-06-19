@@ -19,13 +19,12 @@ $(function(){
 
 	document.getElementById("Return").href = encodeURI("MainPageMan.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 
-	var MyUrl = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/querypersonworkinfo';
+	var MyUrl = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/getallworkinfo';
 	getMyWorkInfo();
 
 
 	function getMyWorkInfo() {
 		var userInfo = {};
-			userInfo.personId = idnecessary;
 			$.ajax({
 				url:MyUrl,
 				type:"GET",
@@ -55,8 +54,8 @@ $(function(){
 		console.log(data.workinfo);
 		for (var i = 0; i < data.date.length; i++, num++) {
 			str = "<tr><td>" + num + "</td><td>" + data.date[i] + "</td><td>" + data.workTime[i] + "</td><td>" + data.offTime[i]+ "</td></tr>";
+			$(".workinfo").append(str);
 		}
-		$(".workinfo").append(str);
 	}
 })
 

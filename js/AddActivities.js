@@ -6,22 +6,26 @@ $(function(){
 	var getdepval = thisURL.split('?')[3];
 	var getidval = thisURL.split('?')[4];
 
-	var name = getnameval.split('=')[1];
-	var position = decodeURI(getpostval.split('=')[1]);
-	var idnecessary = getidval.split('=')[1];
-	var department = decodeURI(getdepval.split('=')[1]);
+	name = getnameval.split('=')[1];
+	position = decodeURI(getpostval.split('=')[1]);
+	idnecessary = getidval.split('=')[1];
+	department = decodeURI(getdepval.split('=')[1]);
 
 	document.getElementById("Return").href = encodeURI("MainPageMan.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 
 	document.getElementById("identity").innerHTML = name + "!";
 	document.getElementById("position").innerHTML = position;
 	document.getElementById("department").innerHTML = department;
+
 })
 
 function getFormElements() {
-	date = $('#date').val();//获取form表单的值
-	starttime =  $('#starttime').val();
-	endtime =  $('#endtime').val();
+	var curDate = new Date();
+	date = curDate.getFullYear() + "-" + (curDate.getMonth() + 1) + "-" + curDate.getDate(); //获取form表单的值
+	alert(date);
+	timeStart =  $('#timeStart').val();
+	timeOff =  $('#timeOff').val();
+	description =  $('#description').val();
 	addActivities();
 	alert("提交成功");
 	document.getElementById("Submit").href = encodeURI("MainPageMan.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
@@ -30,15 +34,13 @@ function getFormElements() {
 function addActivities() {
 	var userInfo = {};
 	userInfo.personId = idnecessary;//TODO
-	userInfo.dayLeave = dayleave;
-	userInfo.dayBack = dayback;
-	userInfo.reason = reason;
-	//date
-	//timeStart
-	//timeOff
-	//description
+	userInfo.date = date;
+	userInfo.timeStart = timeStart;
+	userInfo.timeOff = timeOff;
+	userInfo.description = description;
+
 	$.ajax({
-		url:'http://192.168.43.215:8080/employeeAttendance/executiveadmin/addleaveask',
+		url:'http://192.168.43.215:8080/employeeAttendance/executiveadmin/insertactivity',
 		type:"GET",
 		data:userInfo ,
 		dataType:"jsonp",
@@ -48,7 +50,6 @@ function addActivities() {
 			if(success) {
 				alert('提交成功！');
 				console.log(data);
-				showData(data);
 				}
 			else {
 				console.log(data);

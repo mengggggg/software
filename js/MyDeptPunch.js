@@ -23,7 +23,7 @@ $(function(){
 	document.getElementById("position").innerHTML = position;
 	document.getElementById("department").innerHTML = department;
 
-	document.getElementById("dept").href = encodeURI("MyDeptPunch.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
+	document.getElementById("myself").href = encodeURI("MyPunch.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 
 
 	var Url = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/queryattendancebyexecutiveid';
@@ -46,7 +46,7 @@ $(function(){
 						}
 					else {
 						console.log(data);
-						alert('提交失败！' + data.errMsg);
+						alert('提交失败！' + msg);
 					}
 				},
 				error:function() {
@@ -60,12 +60,7 @@ $(function(){
 		console.log(data.attendanceList[0].person.personName);
 
 		for (var i = 0; i < data.attendanceList.length; i++) {
-			if(data.attendanceList[i].nature == 0) {
-				var nat = "正常上班";
-			} else {
-				var nat = "加班";
-			}
-			str = "<tr><td>" + data.attendanceList[i].person.personName + "</td><td>" + department + "</td><td>" + data.date[i] + "</td><td>" + data.checkIn[i] + "</td><td>" + data.checkOut[i] + "</td><td>" + nat + "</td></tr>";
+			str = "<tr><td>" + data.attendanceList[i].person.personName + "</td><td>" + data.attendanceList[i].person.department + "</td><td>" + data.date[i] + "</td><td>" + data.checkIn[i] + "</td><td>" + data.checkOut[i] + "</td><td>" + data.attendanceList[i].nature + "</td></tr>";
 			$(".punchinfo").append(str);		
 		}
 		

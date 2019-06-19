@@ -22,7 +22,7 @@ $(function(){
 	document.getElementById("WorkInfoMan").href = encodeURI("WorkInfoMan.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("EmpInfoManage").href = encodeURI("EmpInfoManage.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("AllPunch").href = encodeURI("AllPunch.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);	
-	document.getElementById("AddActivities").href = encodeURI("AddActivities.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);		document.getElementById("Login").href = "Login.html";
+	document.getElementById("Activities").href = encodeURI("Activities.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 	document.getElementById("Login").href = "Login.html";
 
 

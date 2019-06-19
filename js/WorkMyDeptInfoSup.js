@@ -7,9 +7,9 @@ $(function(){
 	var getidval = thisURL.split('?')[4];
 	
 
-	var name = getnameval.split('=')[1];
-	var position = decodeURI(getpostval.split('=')[1]);//解决url中传递中文参数乱码问题
-	var department = decodeURI(getdepval.split('=')[1]);
+	name = getnameval.split('=')[1];
+	position = decodeURI(getpostval.split('=')[1]);//解决url中传递中文参数乱码问题
+	department = decodeURI(getdepval.split('=')[1]);
 	idnecessary = getidval.split('=')[1];
 	
 
@@ -18,20 +18,19 @@ $(function(){
 	document.getElementById("department").innerHTML = department;
 
 	document.getElementById("Return").href = encodeURI("MainPageSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
-	document.getElementById("dept").href = encodeURI("WorkMyDeptInfoSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
-	document.getElementById("add").href = encodeURI("AddWorkInfoSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
+	document.getElementById("myself").href = encodeURI("WorkMyInfoSup.html?" + "name=" + name + "?position=" + position + "?department=" + department + "?id=" + idnecessary);
 
-	var MyUrl = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/querydeptworkinfo';
+	var MyDeptUrl = 'http://192.168.43.215:8080/employeeAttendance/executiveadmin/querydeptworkinfo';
 
-	getMyWorkInfo();//页面初始化时执行
+	getMyDeptWorkInfo();//页面初始化时执行
 
-	function getMyWorkInfo() {
+	function getMyDeptWorkInfo() {
 		var userInfo = {};
 			userInfo.personId = idnecessary;
 			$.ajax({
-				url:MyUrl,
+				url:MyDeptUrl,
 				type:"GET",
-				data:userInfo,
+				data:userInfo ,
 				dataType:"jsonp",
 				contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 				success:function(data) {
@@ -50,6 +49,7 @@ $(function(){
 				}
 			})
 
+		console.log(MyDeptUrl);
 	}
 
 	function showMyDeptWorkInfo(data) {
